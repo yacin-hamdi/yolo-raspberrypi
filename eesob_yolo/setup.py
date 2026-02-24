@@ -27,6 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            "yolo_detector = eesob_yolo.yolo_detector:main",
         ],
     },
 )
