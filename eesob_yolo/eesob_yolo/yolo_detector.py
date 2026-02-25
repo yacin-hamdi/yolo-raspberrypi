@@ -3,7 +3,6 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CompressedImage
-from cv_bridge import CvBridge
 from ultralytics import YOLO
 import cv2
 import numpy as np
@@ -23,8 +22,6 @@ class YoloDetector(Node):
         self.model = YOLO(model_path, task='detect')
         self.get_logger().info(f"Model loaded")
 
-        # Tool to convert OpenCV image to ROS Image message
-        self.bridge = CvBridge()
 
         # Subscriber to the compressed camera image
         self.compressed_image_sub = self.create_subscription(
@@ -61,7 +58,7 @@ class YoloDetector(Node):
                 # 4. Create and populate the CompressedImage message
                 out_msg = CompressedImage()
                 out_msg.header= msg.header
-                out_msg.format = "bgr8; jpeg"
+                out_msg.format = "jpeg"
                 out_msg.data = np.array(encimg).tobytes()
 
             

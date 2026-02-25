@@ -32,7 +32,7 @@ class CameraPublisher(Node):
             # frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
             
             # 3. Compress the image to JPEG format (Quality: 80%)
-            encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 80]
+            encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]
             result, encimg = cv2.imencode('.jpg', frame, encode_param)
             
             if result:
