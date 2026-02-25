@@ -1,4 +1,4 @@
-# EESOB — Electronic Components Detection with YOLO & ROS 2
+# Electronic Components Detection with YOLO & ROS 2
 
 Real-time detection of electronic components using a **YOLOv26** model running on a **Raspberry Pi** with **ROS 2**. The project is built as a modular two-node pipeline — one node captures frames from the Pi camera, and the other runs inference — communicating over compressed image topics.
 
